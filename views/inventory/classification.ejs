@@ -1,0 +1,13 @@
+
+<!--  * Render title as h1 if it exists, else redirect to root URL. -->
+<% if (title) { %>
+    <!-- Title as h1 -->
+    <h1><%= title %></h1>
+<% } else {
+    // Redirect to root URL
+    res.redirect('/')
+} %>
+
+<%# messages() %>
+
+<%- grid %>
