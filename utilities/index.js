@@ -78,15 +78,14 @@ Util.buildItemListing = async function(data) {
             <p>
               ${data.inv_description}
             </p>
-              <p>MILEAGE: ${data.inv_miles.toLocaleString('en-US', { style: 'decimal'})}</p>
-              <p>COLOR: ${data.inv_color}</p>
-              <p>CLASS<: ${data.classification_name}</p>
+              <p><b>MILEAGE:</b> ${data.inv_miles.toLocaleString('en-US', { style: 'decimal'})}</p>
+              <p><b>COLOR:</b> ${data.inv_color}</p>
+              <p><b>CLASS:</b> ${data.classification_name}</p>
           </div>
 
         </div>
       </section>
     `;
-    // listingHTML += '<img src="/images/notexist.jpg">'; // Introduce 404 error
   } else {
     listingHTML = `
       <p>Sorry, not matching vehicles could be found.</p>
@@ -94,3 +93,8 @@ Util.buildItemListing = async function(data) {
   }
   return listingHTML;
 }
+
+Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next)
+
+
+module.exports = Util;
