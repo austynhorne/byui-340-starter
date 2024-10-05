@@ -59,3 +59,38 @@ Util.buildClassificationGrid = async function(data){
   }
   return grid
 }
+
+Util.buildItemListing = async function(data) {
+  let listingHTML = '';
+  console.dir({data});
+  if(data) {
+    listingHTML = `
+      <section class="car-listing">
+        <img src="${data.inv_image}" alt="${data.inv_make} ${data.inv_model}">
+        <div class="car-information">
+          <div>
+            <h2>${data.inv_year} ${data.inv_make} ${data.inv_model}</h2>
+          </div>
+          <div>
+            ${Number.parseFloat(data.inv_price).toLocaleString('en-US', { style: 'currency', currency: 'USD'})}
+          </div>
+          <div class="description">
+            <p>
+              ${data.inv_description}
+            </p>
+              <p>MILEAGE: ${data.inv_miles.toLocaleString('en-US', { style: 'decimal'})}</p>
+              <p>COLOR: ${data.inv_color}</p>
+              <p>CLASS<: ${data.classification_name}</p>
+          </div>
+
+        </div>
+      </section>
+    `;
+    // listingHTML += '<img src="/images/notexist.jpg">'; // Introduce 404 error
+  } else {
+    listingHTML = `
+      <p>Sorry, not matching vehicles could be found.</p>
+    `
+  }
+  return listingHTML;
+}

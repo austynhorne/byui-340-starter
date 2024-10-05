@@ -97,6 +97,123 @@ footer p {
   font-size: .9em;
 }
 
+  /**
+  Classification View
+   */
+#inv-display {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1em;
+  padding: 1em;
+}
+
+#inv-display li {
+  background-color: #f7f7f7;
+  padding: 1em;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#inv-display a {
+  text-decoration: none;
+  color: #333;
+}
+
+#inv-display a:hover {
+  opacity: 0.8;
+}
+
+#inv-display img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.namePrice {
+  padding: 1em;
+}
+
+.namePrice h2 {
+  margin-top: 0;
+}
+
+.namePrice span {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #0088fe;
+}
+
+/**Listing View*/
+
+.car-listing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.car-listing img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.car-information {
+  padding: 1em;
+  text-align: center;
+}
+
+.car-information h2 {
+  margin-top: 0;
+  font-size: 1.5em;
+}
+
+.car-information div {
+  margin-bottom: 1em;
+}
+
+.car-information div span {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #0088fe;
+}
+
+.description {
+  padding: 1em;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.description p {
+  margin-bottom: 1em;
+}
+
+.description dl {
+  margin-bottom: 0;
+}
+
+.description dt {
+  font-weight: bold;
+  display: inline-block;
+  width: 100px;
+  margin-right: 1em;
+  vertical-align: top;
+}
+
+.description dd {
+  display: inline-block;
+  width: calc(100% - 120px);
+  vertical-align: top;
+}
+
 @media only screen and (min-width: 768px) {
   body {
     background-image: url("/images/site/small_check.jpg");
@@ -271,4 +388,47 @@ main {
     #review li {
       font-size: 1.1em;
     }
+
+  /**
+  Classification View
+   */
+    #inv-display {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+    
+    #inv-display li {
+      padding: 2em;
+    }
+    
+    #inv-display img {
+      height: 250px;
+    }
+
+/**Listing View*/
+
+.car-listing {
+  flex-direction: row;
+}
+
+.car-listing img {
+  width: 50%;
+  height: 400px;
+}
+
+.car-information {
+  width: 50%;
+  padding: 2em;
+}
+
+.car-information h2 {
+  font-size: 2em;
+}
+
+.car-information div span {
+  font-size: 1.5em;
+}
+
+.description {
+  padding: 2em;
+}
   }
