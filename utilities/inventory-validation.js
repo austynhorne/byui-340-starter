@@ -9,9 +9,19 @@ validate.classificationRules = () => {
       .trim()
       .escape()
       .notEmpty()
-      .isAlphanumeric()
+      .withMessage("Please provide a classification name.")
       .isLength({ min: 1 })
-      .withMessage("Please provide a valid classification name."),
+      .withMessage("Classification name must be at least 1 character long.")
+      .matches(/^[a-z0-9]+$/i)
+      .withMessage("Classification name must contain only alphanumeric characters.")
+      .custom(async (value) => {
+        const lowercaseValue = value.toLowerCase();
+        const existingClassification = await invModel.getClassificationByName(lowercaseValue);
+        if (existingClassification) {
+          throw new Error("Classification already exists (case-insensitive).");
+        }
+        return true;
+      }),
   ];
 };
 

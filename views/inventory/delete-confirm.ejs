@@ -1,0 +1,30 @@
+<!-- views/inventory/delete-confirm.ejs -->
+<% if (title) { %>
+    <h1><%= title %></h1>
+<% } else {
+    res.redirect('/')
+} %>
+
+<%- messages() %>
+
+<p>Confirm Deletion - The delete is permanent.</p>
+
+<form action="/inv/delete" method="post">
+    <fieldset>
+        <label for="inv_make">Make:</label>
+        <input type="text" readonly name="inv_make" id="inv_make" value="<%= inv_make %>">
+
+        <label for="inv_model">Model:</label>
+        <input type="text" readonly name="inv_model" id="inv_model" value="<%= inv_model %>">
+
+        <label for="inv_year">Year:</label>
+        <input type="text" readonly name="inv_year" id="inv_year" value="<%= inv_year %>">
+
+        <label for="inv_price">Price:</label>
+        <input type="text" readonly name="inv_price" id="inv_price" value="<%= inv_price %>">
+
+        <input type="hidden" name="inv_id" value="<%= inv_id %>">
+
+        <button type="submit">Delete Vehicle</button>
+    </fieldset>
+</form>

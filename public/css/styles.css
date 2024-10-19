@@ -208,7 +208,7 @@ footer p {
 
 /* Login and Registration Styles */
 
-.login-form, .register-form {
+.login-form, .register-form, .inventory-form {
   max-width: 400px;
   margin: 40px auto;
   padding: 20px;
@@ -218,17 +218,17 @@ footer p {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.login-form h1, .register-form h1 {
+.login-form h1, .register-form h1, .inventory-form h1 {
   text-align: center;
   margin-bottom: 20px;
 }
 
-.login-form label, .register-form label {
+.login-form label, .register-form label, .inventory-form label {
   display: block;
   margin-bottom: 10px;
 }
 
-.login-form input, .register-form input {
+.login-form input, .register-form input, .inventory-form input {
   width: 100%;
   height: 40px;
   margin-bottom: 20px;
@@ -237,7 +237,7 @@ footer p {
   border-radius: 5px;
 }
 
-.login-form input[type="submit"], .register-form input[type="submit"] {
+.login-form input[type="submit"], .register-form input[type="submit"], .inventory-form[type="submit"] {
   background-color: #0088fe;
   color: #fff;
   padding: 10px 20px;
@@ -246,17 +246,27 @@ footer p {
   cursor: pointer;
 }
 
-.login-form input[type="submit"]:hover, .register-form input[type="submit"]:hover {
+.login-form input[type="submit"]:hover, .register-form input[type="submit"]:hover, .inventory-form[type="submit"]:hover {
   background-color: #0065bd;
 }
 
-.login-form a, .register-form a {
+.login-form a, .register-form a, .inventory-form a{
   text-decoration: none;
   color: #0088fe;
 }
 
-.login-form a:hover, .register-form a:hover {
+.login-form a:hover, .register-form a:hover, .inventory-form a {
   color: #0065bd;
+}
+
+.inventory-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.fine-print {
+  color: #f00;
+  font-size: 10px;
 }
 
 /* Error Messages */
