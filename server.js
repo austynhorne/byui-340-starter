@@ -19,6 +19,7 @@ const utilities = require("./utilities/index.js");
 const session = require("express-session"); 
 const pool = require('./database/');
 const cookieParser = require("cookie-parser")
+const adminRoutes = require("./routes/admin-routes");
 
 /* Middleware */
 app.use(session({
@@ -81,6 +82,8 @@ app.use(async (err, req, res, next) => {
     nav
   })
 })
+
+app.use("/admin", utilities.checkLogin, utilities.checkAuthorizationManager, adminRoutes);
 
 /* Local Server Information Values from .env (environment) file */
 const port = process.env.PORT

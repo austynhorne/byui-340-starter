@@ -52,7 +52,7 @@ invCont.buildByInventoryId = async function (req, res, next) {
   });
 };
 
-/* Vehicle Management Controllers*/
+/* Vehicle Management Controllers */
 
 /**
  * Build the main vehicle management view
@@ -77,33 +77,14 @@ invCont.buildManagementView = async function (req, res, next) {
  * @param {import('express').Response} res
  * @param {import('express').NextFunction} next
  */
-invCont.addClassification = async function (req, res, next) {
-  const { classification_name } = req.body;
-  const lowercaseClassificationName = classification_name.toLowerCase();
-
-  const response = await invModel.addClassification(lowercaseClassificationName);
+invCont.buildAddClassification = async function (req, res, next) {
   let nav = await utilities.getNav();
 
-  if (response) {
-    req.flash(
-      "notice",
-      `The "${lowercaseClassificationName}" classification was successfully added.`
-    );
-    res.render("inventory/management", {
-      title: "Vehicle Management",
-      errors: null,
-      nav,
-      classification_name: lowercaseClassificationName,
-    });
-  } else {
-    req.flash("notice", `Failed to add ${lowercaseClassificationName}`);
-    res.render("inventory/addClassification", {
-      title: "Add New Classification",
-      errors: null,
-      nav,
-      classification_name: lowercaseClassificationName,
-    });
-  }
+  res.render("inventory/addClassification", {
+    title: "Add New Classification",
+    nav,
+    errors: null,
+  });
 };
 /**
  * Handle post request to add a vehicle classification
@@ -354,9 +335,6 @@ invCont.buildDeleteInventory = async function (req, res, next) {
   });
 };
 
-
-
-
 /**
  * Handle post request to delete a vehicle from the inventory along with redirects
  * @param {import('express').Request} req
@@ -381,6 +359,7 @@ invCont.deleteInventory = async function (req, res, next) {
     req.flash("notice", `The ${itemName} was successfully deleted.`);
     res.redirect("/inv/");
   } else {
+
     req.flash("notice", "Sorry, the update failed.");
     res.status(501).render("inventory/deleteInventory", {
       title: "Delete " + itemName,

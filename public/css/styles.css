@@ -505,3 +505,136 @@ input[type="submit"] {
     padding: 8px 12px;
 }
 }
+.user-detail-container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.user-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.account-type {
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.account-type.admin {
+  background-color: #ff4444;
+  color: white;
+}
+
+.account-type.employee {
+  background-color: #33b5e5;
+  color: white;
+}
+
+.account-type.client {
+  background-color: #00C851;
+  color: white;
+}
+
+.info-group {
+  margin-bottom: 10px;
+}
+
+.info-group label {
+  font-weight: bold;
+}
+
+/* Edit User Styles */
+form {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+form input, form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.edit-btn {
+  background-color: #0088fe;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #0066cc;
+}
+
+.back-btn {
+  background-color: #f8f9fa;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.back-btn:hover {
+  background-color: #e9ecef;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .user-header {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .user-info {
+      grid-template-columns: 1fr;
+  }
+
+  .action-buttons {
+      flex-direction: column;
+  }
+
+  .btn {
+      width: 100%;
+      text-align: center;
+  }
+}

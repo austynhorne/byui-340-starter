@@ -1,0 +1,19 @@
+<% if (title) { %>
+    <h1><%= title %></h1>
+<% } else {
+    res.redirect('/')
+} %>
+
+<%- messages() %>
+
+<div class="user-details">
+  <h2>User Information</h2>
+  <p><strong>User ID:</strong> <%= user.account_id %></p>
+  <p><strong>First Name:</strong> <%= user.account_firstname %></p>
+  <p><strong>Last Name:</strong> <%= user.account_lastname %></p>
+  <p><strong>Email:</strong> <%= user.account_email %></p>
+  <p><strong>Account Type:</strong> <%= user.account_type %></p>
+</div>
+
+<a href="/admin/users/edit/<%= user.account_id %>">Edit User</a>
+<a href="/admin/users">Back to User List</a>

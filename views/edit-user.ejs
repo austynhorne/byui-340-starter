@@ -1,0 +1,38 @@
+<% if (title) { %>
+    <h1><%= title %></h1>
+<% } else {
+    res.redirect('/')
+} %>
+
+<%- messages() %>
+
+<% if (errors) { %>
+  <ul class="notice">
+ <% errors.array().forEach(error => { %>
+   <li><%= error.msg %></li>
+<%  }) %>
+ </ul>
+<% } %>
+
+<form action="/admin/users/edit/<%= user.account_id %>" method="POST">
+  <label for="account_firstname">First Name:</label>
+  <input type="text" id="account_firstname" name="account_firstname" value="<%= user.account_firstname %>" required>
+  
+  <label for="account_lastname">Last Name:</label>
+  <input type="text" id="account_lastname" name="account_lastname" value="<%= user.account_lastname %>" required>
+  
+  <label for="account_email">Email:</label>
+  <input type="email" id="account_email" name="account_email" value="<%= user.account_email %>" required>
+  
+  <label for="account_type">Account Type:</label>
+  <select id="account_type" name="account_type" required>
+    <option value="Client" <%= user.account_type === 'Client' ? 'selected' : '' %>>Client</option>
+    <option value="Employee" <%= user.account_type === 'Employee' ? 'selected' : '' %>>Employee</option>
+    <option value="Admin" <%= user.account_type === 'Admin' ? 'selected' : '' %>>Admin</option>
+  </select>
+  
+  <button type="submit">Update User</button>
+</form>
+
+<a href="/admin/users/<%= user.account_id %>">Back to User Details</a>
+<a href="/admin/users">Back to User List</a>

@@ -248,3 +248,48 @@ WHERE inv_make = 'GM' AND inv_model = 'Hummer';
 UPDATE public.inventory
 SET inv_image = REGEXP_REPLACE(inv_image, '^(/images)/', '\1/vehicles/'),
     inv_thumbnail = REGEXP_REPLACE(inv_thumbnail, '^(/images)/', '\1/vehicles/');
+
+    -- Basic Client account
+INSERT INTO public.account (
+    account_firstname,
+    account_lastname,
+    account_email,
+    account_password,
+    account_type
+) VALUES (
+    'Basic',
+    'Client',
+    'basic@340.edu',
+    'I@mABas1cCl!3nt',
+    'Client'
+);
+
+-- Happy Employee account
+INSERT INTO public.account (
+    account_firstname,
+    account_lastname,
+    account_email,
+    account_password,
+    account_type
+) VALUES (
+    'Happy',
+    'Employee',
+    'happy@340.edu',
+    'I@mAnEmpl0y33',
+    'Employee'
+);
+
+-- Manager User account (Admin)
+INSERT INTO public.account (
+    account_firstname,
+    account_lastname,
+    account_email,
+    account_password,
+    account_type
+) VALUES (
+    'Manager',
+    'User',
+    'manager@340.edu',
+    'I@mAnAdm!n1strat0r',
+    'Admin'
+);
